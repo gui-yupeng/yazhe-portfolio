@@ -1,0 +1,30 @@
+/* Black gallery, original-colour work and dimensional orbital linework. */
+html,body,.ambient,.portrait-cover,.cover-art{background:#050505!important}.ambient:after{display:none}body:before{opacity:.025!important}
+#particles,#studio,#map,#works,#about,.contact{background:transparent!important;color:#e8e8e8;isolation:isolate}.scroll-sculpture,.scroll-words{display:none!important}
+.project img,.project:hover img,.film-fragment img,.film-fragment:hover img,.modal-media img,.atlas-preview img{filter:none!important}
+#map .section-copy,#works .section-copy{font-size:16px;color:#aaa}#map .ability p{font-size:14px;line-height:1.7;color:#bbb}.ability-grid{gap:1px;background:#fff2;border:1px solid #fff2}.ability{background:#080808e8}.ability:hover{background:#151515}
+#works .filter{font-size:12px}#works .project{translate:0 var(--card-lift,0px);rotate:var(--card-turn,0deg);transform:none!important;transition:box-shadow .4s}#works .project img{scale:1.1;translate:0 var(--image-shift,0px);transition:scale .7s}#works .project:hover img{scale:1.16;transform:none}#works .project[data-pending=true] img{scale:1!important;translate:none!important}
+#about p{color:#bcbcbc;font-size:18px;line-height:1.9}.contact-box{background:transparent!important}.contact-stage{background-color:transparent;box-shadow:none}
+.scroll-room-title{translate:var(--title-shift,0px) 0;will-change:translate}.scroll-room-copy{translate:0 var(--copy-lift,0px);opacity:var(--copy-opacity,1)}
+.scroll-progress{position:fixed;left:0;top:0;z-index:240;height:2px;width:100%;background:#eee;transform:scaleX(var(--page-progress,0));transform-origin:left;pointer-events:none}
+.orbit-canvas,.pointer-field{position:fixed;inset:0;width:100%;height:100%;pointer-events:none}.orbit-canvas{z-index:9}.pointer-field{z-index:122}.scroll-dust{display:none!important}.pointer-dust{display:none!important}
+.calm .orbit-canvas,.calm .pointer-field{display:none}.calm .scroll-room-title,.calm .scroll-room-copy,.calm #works .project,.calm #works .project img{translate:none!important;rotate:none!important;opacity:1!important}
+@media(max-width:760px){#about p{font-size:16px}}@media(prefers-reduced-motion:reduce){.orbit-canvas,.pointer-field{display:none}.scroll-room-title,.scroll-room-copy,#works .project,#works .project img{translate:none!important;rotate:none!important;opacity:1!important}}
+
+.paper-study{display:none!important}
+/* Keep hover treatment clear of project typography. */
+.project:before,.project:hover:before{display:none!important}.cursor{display:none!important}.project .arrow{display:none!important}.project:focus-visible{outline:2px solid #ddd;outline-offset:4px}
+
+.fluid-field{position:fixed;inset:0;width:100%;height:100%;z-index:8;pointer-events:none}.calm .fluid-field{display:none}@media(prefers-reduced-motion:reduce){.fluid-field{display:none}}
+.contact-slip{position:fixed;right:4vw;bottom:95px;width:min(360px,calc(100vw - 40px));z-index:210;padding:28px;background:#dededb;color:#171717;border-radius:4px;box-shadow:0 20px 80px #000b;transform-origin:90% 100%;animation:slip-in .5s cubic-bezier(.2,.8,.2,1)}.contact-slip[hidden]{display:none}.slip-close{position:absolute;right:15px;top:14px;border:0;background:none;font:12px Arial,sans-serif;cursor:pointer}.slip-kicker{font:11px Arial,sans-serif;letter-spacing:.2em}.contact-slip h3{font:400 43px Georgia,serif;letter-spacing:-.06em;margin:25px 0 8px}.contact-slip p{font:14px/1.6 Arial,sans-serif;color:#444}.contact-slip strong{display:block;font:18px Arial,sans-serif;margin:25px 0}.slip-actions{display:flex;gap:10px;align-items:center}.slip-actions button,.slip-actions a{font:13px Arial,sans-serif;padding:12px;border:1px solid #333;border-radius:25px;background:none;color:#111;cursor:pointer}.slip-actions a{background:#111;color:#eee}.slip-feedback{min-height:22px;margin-bottom:0}@keyframes slip-in{from{opacity:0;transform:translateY(35px) rotate(6deg)}to{opacity:1;transform:none}}@media(prefers-reduced-motion:reduce){.contact-slip{animation:none}}
+
+.orbit-canvas{display:block!important;z-index:8}.fluid-field,.liquid-metal,.orbital-art,.stage-orbit{display:none!important}.cursor-aperture{position:fixed;inset:0;width:100%;height:100%;z-index:9;pointer-events:none}.calm .orbit-canvas{display:none!important}@media(prefers-reduced-motion:reduce){.orbit-canvas{display:none!important}}
+
+.cursor-aperture{display:none!important}.reference-depth{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:9;mix-blend-mode:screen}
+
+/* Reveal the existing liquid surface beneath the cover artwork. */
+.portrait-cover,.portrait-cover .cover-art{background:transparent!important}
+.portrait-cover:after{background:none!important}
+
+/* Production notes for the existing portfolio entries. */
+.modal-note{font-size:14px;line-height:1.8;color:#aaa}
