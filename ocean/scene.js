@@ -1,6 +1,6 @@
 import * as Three from './three.module.js';
 import {installScene} from './install-scene.js';
-import {runScene} from './source/main.js?v=shelf-1';
+import {runScene} from './source/main.js';
 import {SCENE_HTML,SCENE_CSS} from './source/page.js';
 import {requestBackgroundFrame,cancelBackgroundFrame} from './frame.js';
 

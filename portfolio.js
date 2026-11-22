@@ -31,9 +31,14 @@ function openProject(id, trigger) {
   title.textContent=p.titleEn;desc.textContent=p.descEn;meta.textContent=`${p.typeEn} / ${p.meta}`;note.textContent=p.processEn||'';note.hidden=!p.processEn;
   modal.classList.add('open');modal.setAttribute('aria-hidden','false');
   document.querySelector('.site').inert=true;document.querySelector('.nav').inert=true;document.querySelector('.ocean-controls').inert=true;
-  document.body.classList.add('modal-open');window.dispatchEvent(new Event('portfolio-video-open'));
-  modal.querySelector('.modal-card').scrollTop=0;
-  close.focus({preventScroll:true});
+  document.body.classList.add('modal-open');window.dispatchEvent(new Event('portfolio-video-open'));close.focus();
+  if(trigger?.getBoundingClientRect&&!matchMedia('(prefers-reduced-motion: reduce)').matches){
+    const r=trigger.getBoundingClientRect();
+    if(r.width>0&&r.height>0){
+      modal.getAnimations().forEach(animation=>animation.cancel());
+      modal.animate([{clipPath:`inset(${Math.max(0,r.top)}px ${Math.max(0,innerWidth-r.right)}px ${Math.max(0,innerHeight-r.bottom)}px ${Math.max(0,r.left)}px round 3px)`,transform:'rotate(-4.5deg)'},{clipPath:'inset(0px 0px 0px 0px round 0px)',transform:'rotate(0deg)'}],{duration:760,easing:'cubic-bezier(.76,0,.18,1)'});
+    }
+  }
 }
 function closeModal() {
   if(!modal.classList.contains('open'))return;

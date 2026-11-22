@@ -1,4 +1,4 @@
-import {createScene} from './ocean/scene.js?v=shelf-1';
+import {createScene} from './ocean/scene.js';
 const target=document.getElementById('ocean-background');
 const canvas=document.createElement('canvas');
 const status=document.getElementById('ocean-status');
@@ -13,7 +13,7 @@ scene.api?.setDiveDepth((window.portfolioBottomShade??0)*.9);
 scene.ready.then(()=>{status.hidden=true;controls.querySelectorAll('button').forEach(b=>b.disabled=false);}).catch(()=>{});
 controls.querySelectorAll('button').forEach(b=>b.disabled=true);
 // Forward only the exposed water area; cards, text panels and controls own their input.
-const excluded='a,button,input,textarea,select,video,.modal,.identity-badge,.badge-rig,.ability,.project,.hero-copy,.eyebrow,.hero h2,.section-head,.statement,.contact-box,.filterbar,.vhs-viewport';
+const excluded='a,button,input,textarea,select,video,.modal,.identity-badge,.badge-rig,.ability,.project,.hero-copy,.eyebrow,.hero h2,.section-head,.statement,.contact-box,.filterbar';
 for(const type of ['pointermove','pointerdown','pointerup','pointercancel']) {
   window.addEventListener(type,event=>{
     if(scene.disposed||event.target===canvas||document.body.classList.contains('play-open'))return;
@@ -52,7 +52,6 @@ window.addEventListener('ocean-depth',event=>{
   scene.api?.setDiveDepth((event.detail.shade??0)*.9);
 });
 window.addEventListener('portfolio-coins-visible',event=>{scene.api?.setParameter('performanceMode',event.detail.visible?1:0,false);});
-window.addEventListener('portfolio-shelf-motion',event=>scene.api?.setForegroundMotion?.(event.detail.sliding));
 window.addEventListener('pagehide',()=>scene.dispose(),{once:true});
 // Read-only preview diagnostics for frame, creature and quality verification.
 window.portfolioOcean={snapshot:()=>scene.snapshot()};

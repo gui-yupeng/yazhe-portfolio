@@ -6,9 +6,7 @@ export const PERFORMANCE_PROFILES = Object.freeze([
 ]);
 export function createPerformancePolicy(initial=0){
   let mode=0,level=1,nextFrame=0,elapsed=0,samples=0,slow=0,fast=0,cooldown=0,observedFps=0;
-  let foregroundMotion=false;
   const profile=()=>PERFORMANCE_PROFILES[level];
-  const renderFps=()=>foregroundMotion?Math.min(30,profile().fps):profile().fps;
   function resetSampling(){elapsed=0;samples=0;slow=0;fast=0;}
   function setMode(value){mode=Number.isFinite(value)?Math.max(0,Math.min(3,Math.round(value))):0;level=mode===0?1:mode-1;nextFrame=0;cooldown=20;resetSampling();}
   setMode(initial);
@@ -16,21 +14,15 @@ export function createPerformancePolicy(initial=0){
     get profile(){return profile();},
     setMode,
     resetClock(){nextFrame=0;resetSampling();},
-    setForegroundMotion(active){
-      if(active===foregroundMotion)return;
-      foregroundMotion=active;
-      nextFrame=0;
-      resetSampling();
-    },
     shouldRender(now){
-      const interval=1000/renderFps();
+      const interval=1000/profile().fps;
       if(nextFrame&&now+.75<nextFrame)return false;
       nextFrame=nextFrame&&now-nextFrame<interval*3?nextFrame+interval:now+interval;
       return true;
     },
     pixelRatio(dpr,width,height){return Math.min(Math.max(.1,dpr||1),profile().maxDpr,Math.sqrt(profile().maxPixels/Math.max(1,width*height)));},
     observe(seconds){
-      if(foregroundMotion||!Number.isFinite(seconds)||seconds<=0||seconds>.25)return false;
+      if(!Number.isFinite(seconds)||seconds<=0||seconds>.25)return false;
       elapsed+=seconds;samples++;cooldown=Math.max(0,cooldown-seconds);
       if(elapsed<4)return false;
       const mean=elapsed/samples;observedFps=1/mean;elapsed=0;samples=0;
@@ -41,6 +33,6 @@ export function createPerformancePolicy(initial=0){
       if(next===level)return false;
       level=next;cooldown=30;nextFrame=0;resetSampling();return true;
     },
-    snapshot(){return {mode,profile:profile().name,targetFps:renderFps(),observedFps:Math.round(observedFps*10)/10,maxPixels:profile().maxPixels,shadowBudget:profile().shadows,particleScale:profile().particles,migrationBudget:profile().migration};}
+    snapshot(){return {mode,profile:profile().name,targetFps:profile().fps,observedFps:Math.round(observedFps*10)/10,maxPixels:profile().maxPixels,shadowBudget:profile().shadows,particleScale:profile().particles,migrationBudget:profile().migration};}
   };
 }
