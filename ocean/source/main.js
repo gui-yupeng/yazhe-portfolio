@@ -1,4 +1,4 @@
-import {createPerformancePolicy} from '../performance.js';
+import {createPerformancePolicy} from '../performance.js?v=shelf-1';
 import {createEventSchedule,COMMON_EVENTS,RARE_EVENTS} from '../event-schedule.js';
 import {createWaterPointerProjection} from './water-pointer.js';
 export function runScene(scope) {
@@ -1391,6 +1391,7 @@ const {OceanObjectOcclusion,OceanDriftDuo,OceanPenguinIce,OceanVisitors,OceanMet
     },
     parameters: () => ({ ...settings }),
     setParameter: applySetting,
+    setForegroundMotion: performancePolicy.setForegroundMotion,
     previewEvent: previewAmbient,
     cancelEvent: () => {
       ambient.cancel();
