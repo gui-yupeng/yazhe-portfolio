@@ -33,7 +33,7 @@ function showProjectCover(project) {
   modal.classList.remove('video-mode');
   videoToggle.hidden = !project?.videoUrl;
   videoToggle.textContent = project?.videoLabel || (
-    project?.hlsUrl && location.protocol !== 'file:' ? 'Play film in 4K' : 'Play film'
+    project?.hlsUrl && location.protocol !== 'file:' ? window.L('Play film in 4K','播放4K版本') : window.L('Play film','播放作品')
   );
   videoStatus.textContent = '';
 }
@@ -49,9 +49,9 @@ function playProjectVideo(project, preferHighQuality = true) {
   video.poster = project.image;
   video.setAttribute('aria-label', project.titleEn);
   modal.classList.add('video-mode');
-  videoToggle.textContent = 'View cover';
+  videoToggle.textContent = window.L('View cover','查看封面');
   if (project.hlsUrl && !stream) {
-    videoStatus.textContent = 'Playing the HD version.';
+    videoStatus.textContent = window.L('Playing the HD version.','正在播放高清版本。');
   }
 
   function play() {
@@ -109,6 +109,6 @@ video.addEventListener('error', () => {
     playProjectVideo(project, false);
   } else {
     showProjectCover(project);
-    videoStatus.textContent = 'This video could not be loaded. Try playing it again.';
+    videoStatus.textContent = window.L('This video could not be loaded. Try playing it again.','视频暂时无法加载，请重试。');
   }
 });

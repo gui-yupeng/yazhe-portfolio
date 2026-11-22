@@ -1,0 +1,27 @@
+{
+  "title": "Coin",
+  "thumbnail": {
+    "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ee/Kiloware.JPG/330px-Kiloware.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "width": 330,
+    "height": 325
+  },
+  "originalimage": {
+    "source": "https://upload.wikimedia.org/wikipedia/commons/e/ee/Kiloware.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "width": 2552,
+    "height": 2514
+  },
+  "content_urls": {
+    "desktop": {
+      "page": "https://en.wikipedia.org/wiki/Coin",
+      "revisions": "https://en.wikipedia.org/wiki/Coin?action=history",
+      "edit": "https://en.wikipedia.org/wiki/Coin?action=edit",
+      "talk": "https://en.wikipedia.org/wiki/Talk:Coin"
+    },
+    "mobile": {
+      "page": "https://en.wikipedia.org/wiki/Coin",
+      "revisions": "https://en.wikipedia.org/wiki/Special:History/Coin",
+      "edit": "https://en.wikipedia.org/wiki/Coin?action=edit",
+      "talk": "https://en.wikipedia.org/wiki/Talk:Coin"
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "title": "Euro coins",
+  "thumbnail": null,
+  "originalimage": null,
+  "content_urls": {
+    "desktop": {
+      "page": "https://en.wikipedia.org/wiki/Euro_coins",
+      "revisions": "https://en.wikipedia.org/wiki/Euro_coins?action=history",
+      "edit": "https://en.wikipedia.org/wiki/Euro_coins?action=edit",
+      "talk": "https://en.wikipedia.org/wiki/Talk:Euro_coins"
+    },
+    "mobile": {
+      "page": "https://en.wikipedia.org/wiki/Euro_coins",
+      "revisions": "https://en.wikipedia.org/wiki/Special:History/Euro_coins",
+      "edit": "https://en.wikipedia.org/wiki/Euro_coins?action=edit",
+      "talk": "https://en.wikipedia.org/wiki/Talk:Euro_coins"
+    }
+  }
+}

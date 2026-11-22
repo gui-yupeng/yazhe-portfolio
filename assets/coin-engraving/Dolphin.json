@@ -1,0 +1,27 @@
+{
+  "title": "Dolphin",
+  "thumbnail": {
+    "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/10/Tursiops_truncatus_01.jpg/330px-Tursiops_truncatus_01.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "width": 330,
+    "height": 219
+  },
+  "originalimage": {
+    "source": "https://upload.wikimedia.org/wikipedia/commons/1/10/Tursiops_truncatus_01.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "width": 3000,
+    "height": 1995
+  },
+  "content_urls": {
+    "desktop": {
+      "page": "https://en.wikipedia.org/wiki/Dolphin",
+      "revisions": "https://en.wikipedia.org/wiki/Dolphin?action=history",
+      "edit": "https://en.wikipedia.org/wiki/Dolphin?action=edit",
+      "talk": "https://en.wikipedia.org/wiki/Talk:Dolphin"
+    },
+    "mobile": {
+      "page": "https://en.wikipedia.org/wiki/Dolphin",
+      "revisions": "https://en.wikipedia.org/wiki/Special:History/Dolphin",
+      "edit": "https://en.wikipedia.org/wiki/Dolphin?action=edit",
+      "talk": "https://en.wikipedia.org/wiki/Talk:Dolphin"
+    }
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "title": "Sea turtle",
+  "thumbnail": {
+    "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6e/Chelonia_mydas_is_going_for_the_air_edit.jpg/330px-Chelonia_mydas_is_going_for_the_air_edit.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "width": 330,
+    "height": 248
+  },
+  "originalimage": {
+    "source": "https://upload.wikimedia.org/wikipedia/commons/6/6e/Chelonia_mydas_is_going_for_the_air_edit.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "width": 2200,
+    "height": 1650
+  },
+  "content_urls": {
+    "desktop": {
+      "page": "https://en.wikipedia.org/wiki/Sea_turtle",
+      "revisions": "https://en.wikipedia.org/wiki/Sea_turtle?action=history",
+      "edit": "https://en.wikipedia.org/wiki/Sea_turtle?action=edit",
+      "talk": "https://en.wikipedia.org/wiki/Talk:Sea_turtle"
+    },
+    "mobile": {
+      "page": "https://en.wikipedia.org/wiki/Sea_turtle",
+      "revisions": "https://en.wikipedia.org/wiki/Special:History/Sea_turtle",
+      "edit": "https://en.wikipedia.org/wiki/Sea_turtle?action=edit",
+      "talk": "https://en.wikipedia.org/wiki/Talk:Sea_turtle"
+    }
+  }
+}

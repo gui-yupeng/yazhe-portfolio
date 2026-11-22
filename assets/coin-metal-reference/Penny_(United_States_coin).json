@@ -1,0 +1,27 @@
+{
+  "title": "Penny (United States coin)",
+  "thumbnail": {
+    "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2e/US_One_Cent_Obv.png/330px-US_One_Cent_Obv.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "width": 330,
+    "height": 330
+  },
+  "originalimage": {
+    "source": "https://upload.wikimedia.org/wikipedia/commons/2/2e/US_One_Cent_Obv.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "width": 2000,
+    "height": 2000
+  },
+  "content_urls": {
+    "desktop": {
+      "page": "https://en.wikipedia.org/wiki/Penny_(United_States_coin)",
+      "revisions": "https://en.wikipedia.org/wiki/Penny_(United_States_coin)?action=history",
+      "edit": "https://en.wikipedia.org/wiki/Penny_(United_States_coin)?action=edit",
+      "talk": "https://en.wikipedia.org/wiki/Talk:Penny_(United_States_coin)"
+    },
+    "mobile": {
+      "page": "https://en.wikipedia.org/wiki/Penny_(United_States_coin)",
+      "revisions": "https://en.wikipedia.org/wiki/Special:History/Penny_(United_States_coin)",
+      "edit": "https://en.wikipedia.org/wiki/Penny_(United_States_coin)?action=edit",
+      "talk": "https://en.wikipedia.org/wiki/Talk:Penny_(United_States_coin)"
+    }
+  }
+}

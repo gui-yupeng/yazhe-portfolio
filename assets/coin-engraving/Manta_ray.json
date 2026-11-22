@@ -1,0 +1,27 @@
+{
+  "title": "Manta ray",
+  "thumbnail": {
+    "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/30/Dharavandhoo_Thila_-_Manata_Black_Pearl.JPG/330px-Dharavandhoo_Thila_-_Manata_Black_Pearl.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "width": 330,
+    "height": 219
+  },
+  "originalimage": {
+    "source": "https://upload.wikimedia.org/wikipedia/commons/3/30/Dharavandhoo_Thila_-_Manata_Black_Pearl.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "width": 1029,
+    "height": 683
+  },
+  "content_urls": {
+    "desktop": {
+      "page": "https://en.wikipedia.org/wiki/Manta_ray",
+      "revisions": "https://en.wikipedia.org/wiki/Manta_ray?action=history",
+      "edit": "https://en.wikipedia.org/wiki/Manta_ray?action=edit",
+      "talk": "https://en.wikipedia.org/wiki/Talk:Manta_ray"
+    },
+    "mobile": {
+      "page": "https://en.wikipedia.org/wiki/Manta_ray",
+      "revisions": "https://en.wikipedia.org/wiki/Special:History/Manta_ray",
+      "edit": "https://en.wikipedia.org/wiki/Manta_ray?action=edit",
+      "talk": "https://en.wikipedia.org/wiki/Talk:Manta_ray"
+    }
+  }
+}

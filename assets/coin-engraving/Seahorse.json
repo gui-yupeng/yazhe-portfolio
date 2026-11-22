@@ -1,0 +1,27 @@
+{
+  "title": "Seahorse",
+  "thumbnail": {
+    "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/25/Hippocampus_hippocampus_%28on_Ascophyllum_nodosum%29.jpg/330px-Hippocampus_hippocampus_%28on_Ascophyllum_nodosum%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "width": 330,
+    "height": 440
+  },
+  "originalimage": {
+    "source": "https://upload.wikimedia.org/wikipedia/commons/2/25/Hippocampus_hippocampus_%28on_Ascophyllum_nodosum%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "width": 2533,
+    "height": 3378
+  },
+  "content_urls": {
+    "desktop": {
+      "page": "https://en.wikipedia.org/wiki/Seahorse",
+      "revisions": "https://en.wikipedia.org/wiki/Seahorse?action=history",
+      "edit": "https://en.wikipedia.org/wiki/Seahorse?action=edit",
+      "talk": "https://en.wikipedia.org/wiki/Talk:Seahorse"
+    },
+    "mobile": {
+      "page": "https://en.wikipedia.org/wiki/Seahorse",
+      "revisions": "https://en.wikipedia.org/wiki/Special:History/Seahorse",
+      "edit": "https://en.wikipedia.org/wiki/Seahorse?action=edit",
+      "talk": "https://en.wikipedia.org/wiki/Talk:Seahorse"
+    }
+  }
+}

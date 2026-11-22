@@ -1,0 +1,27 @@
+{
+  "title": "Jellyfish",
+  "thumbnail": {
+    "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/44/Jelly_cc11.jpg/330px-Jelly_cc11.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "width": 330,
+    "height": 219
+  },
+  "originalimage": {
+    "source": "https://upload.wikimedia.org/wikipedia/commons/4/44/Jelly_cc11.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "width": 1024,
+    "height": 681
+  },
+  "content_urls": {
+    "desktop": {
+      "page": "https://en.wikipedia.org/wiki/Jellyfish",
+      "revisions": "https://en.wikipedia.org/wiki/Jellyfish?action=history",
+      "edit": "https://en.wikipedia.org/wiki/Jellyfish?action=edit",
+      "talk": "https://en.wikipedia.org/wiki/Talk:Jellyfish"
+    },
+    "mobile": {
+      "page": "https://en.wikipedia.org/wiki/Jellyfish",
+      "revisions": "https://en.wikipedia.org/wiki/Special:History/Jellyfish",
+      "edit": "https://en.wikipedia.org/wiki/Jellyfish?action=edit",
+      "talk": "https://en.wikipedia.org/wiki/Talk:Jellyfish"
+    }
+  }
+}

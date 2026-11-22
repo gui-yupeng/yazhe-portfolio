@@ -1,0 +1,27 @@
+{
+  "title": "Octopus",
+  "thumbnail": {
+    "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/57/Octopus2.jpg/330px-Octopus2.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "width": 330,
+    "height": 251
+  },
+  "originalimage": {
+    "source": "https://upload.wikimedia.org/wikipedia/commons/5/57/Octopus2.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "width": 2704,
+    "height": 2058
+  },
+  "content_urls": {
+    "desktop": {
+      "page": "https://en.wikipedia.org/wiki/Octopus",
+      "revisions": "https://en.wikipedia.org/wiki/Octopus?action=history",
+      "edit": "https://en.wikipedia.org/wiki/Octopus?action=edit",
+      "talk": "https://en.wikipedia.org/wiki/Talk:Octopus"
+    },
+    "mobile": {
+      "page": "https://en.wikipedia.org/wiki/Octopus",
+      "revisions": "https://en.wikipedia.org/wiki/Special:History/Octopus",
+      "edit": "https://en.wikipedia.org/wiki/Octopus?action=edit",
+      "talk": "https://en.wikipedia.org/wiki/Talk:Octopus"
+    }
+  }
+}
