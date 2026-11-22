@@ -7,12 +7,12 @@
  const prev=shelf.querySelector('.vhs-prev'),next=shelf.querySelector('.vhs-next'),open=shelf.querySelector('.vhs-open');
  let films=all,tapes=[],s=0,target=0,H=360,ws=60,d=200,gap=10,active=-1,hover=null;
  let frame=0,last=0,viewportWidth=0,visible=false,paused=false,drag=null,suppress=false,tiltX=0,tiltY=0,mouseX=0,mouseY=0;
- let pendingPointer=null,wheelActive=false,snap=0,sliding=false;
+ let pendingPointer=null,wheelActive=false,snap=0,sliding=false,selection=null;
  const settleDistance=.002;
  const bookPalette={latch:['#4c3023','#a78562'],migration:['#30343d','#8b929d'],pause:['#254449','#78999b'],'history-titles':['#502d29','#b08a65'],cheng:['#2a4033','#87a080'],'the-hat':['#342d43','#95839f'],'officer-frank':['#3b382d','#a49b7e']};
  const modulo=(v,n)=>((v%n)+n)%n,smooth=x=>x*x*(3-2*x),clamp=(v,a,b)=>Math.max(a,Math.min(b,v));
  function fill(){
-  stage.replaceChildren();tapes=[];hover=null;const n=films.length,copies=n===1?1:Math.max(5,Math.ceil(24/n));s=target=n===1?0:n*Math.floor(copies/2);active=-1;
+  stage.replaceChildren();tapes=[];hover=null;selection=null;const n=films.length,copies=n===1?1:Math.max(5,Math.ceil(24/n));s=target=n===1?0:n*Math.floor(copies/2);active=-1;
   for(let v=0;v<n*copies;v++){
    const p=films[v%n],button=document.createElement('button');button.type='button';button.className='vhs-tape';button.tabIndex=-1;button.dataset.id=p.id;
    const tones=bookPalette[p.id]||bookPalette.latch;button.style.setProperty('--book-base',tones[0]);button.style.setProperty('--book-trim',tones[1]);
@@ -21,7 +21,7 @@
    button.querySelectorAll('img').forEach(img=>img.addEventListener('error',()=>{if(img.getAttribute('src')!==p.fallbackImage)img.src=p.fallbackImage;}));
    const tape={button,v,lift:0,shown:null,focused:null,depth:null,openness:null,transform:''};
    button.addEventListener('pointerenter',()=>{hover=v;start();});button.addEventListener('pointerleave',()=>{if(hover===v)hover=null;start();});
-   button.addEventListener('click',()=>{if(suppress)return;const r=relative(v);if(Math.abs(r)<.5&&Math.abs(target-s)<.2)showFilm();else{target=Math.round(s+r);start();}});
+   button.addEventListener('click',()=>{if(suppress)return;const r=relative(v);if(Math.abs(r)<.5&&Math.abs(target-s)<.2)showFilm();else selectBook(Math.round(s+r));});
    stage.append(button);tapes.push(tape);
   }
   prev.disabled=next.disabled=n<=1;layout();start();
@@ -95,11 +95,20 @@
    mouseY=clamp((pendingPointer.y-rect.top-rect.height/2)/(H*.5),-1,1);
    pendingPointer=null;
   }
-  if(reduce.matches||drag?.moved)s=target;
-  else s+=(target-s)*(1-Math.exp(-(wheelActive?11:6.5)*dt));
-  if(Math.abs(s-target)<settleDistance)s=target;
+  if(reduce.matches||drag?.moved){
+   s=target;
+   selection=null;
+  }else if(selection){
+   selection.started??=now;
+   const progress=Math.min(1,(now-selection.started)/selection.duration);
+   s=selection.from+(target-selection.from)*(1-(1-progress)**3);
+   if(progress===1)selection=null;
+  }else{
+   s+=(target-s)*(1-Math.exp(-(wheelActive?11:6.5)*dt));
+  }
+  if(Math.abs(s-target)<settleDistance){s=target;selection=null;}
   const n=films.length;
-  if(!drag&&Math.abs(s)>n*8){
+  if(!drag&&!selection&&Math.abs(s)>n*8){
    const shift=Math.trunc(s/n)*n;
    s-=shift;
    target-=shift;
@@ -128,8 +137,17 @@
   if(Math.abs(s-target)>.25)return;const tape=tapes.find(t=>Math.abs(relative(t.v))<.5);if(!tape)return;
   target=Math.round(s);window.openPortfolioProject(films[modulo(Math.round(s),films.length)].id,tape.button.querySelector('.vhs-cover'));
  }
- prev.addEventListener('click',()=>{target=Math.round(target)-1;start();});next.addEventListener('click',()=>{target=Math.round(target)+1;start();});open.addEventListener('click',showFilm);
- shelf.addEventListener('keydown',e=>{if(e.key==='ArrowLeft'||e.key==='ArrowRight'){e.preventDefault();if(films.length>1){target=Math.round(target)+(e.key==='ArrowLeft'?-1:1);start();}}else if(e.key==='Enter'&&e.target===shelf){e.preventDefault();showFilm();}});
+ function selectBook(index){
+  clearTimeout(snap);
+  wheelActive=false;
+  target=index;
+  selection={from:s,started:null,duration:clamp(175+Math.abs(target-s)*30,200,340)};
+  start();
+ }
+ prev.addEventListener('click',()=>selectBook(Math.round(target)-1));
+ next.addEventListener('click',()=>selectBook(Math.round(target)+1));
+ open.addEventListener('click',showFilm);
+ shelf.addEventListener('keydown',e=>{if(e.key==='ArrowLeft'||e.key==='ArrowRight'){e.preventDefault();if(films.length>1)selectBook(Math.round(target)+(e.key==='ArrowLeft'?-1:1));}else if(e.key==='Enter'&&e.target===shelf){e.preventDefault();showFilm();}});
  viewport.addEventListener('pointerdown',e=>{if(e.button!==0||films.length<2)return;drag={x:e.clientX,y:e.clientY,target,id:e.pointerId,moved:false};suppress=false;});
  viewport.addEventListener('pointermove',e=>{
   pendingPointer={x:e.clientX,y:e.clientY};
@@ -141,6 +159,10 @@
    }
    if(!drag.moved&&Math.abs(dx)>5){
     drag.moved=true;
+    drag.target=s;
+    selection=null;
+    clearTimeout(snap);
+    wheelActive=false;
     suppress=true;
     viewport.setPointerCapture(e.pointerId);
    }
@@ -174,6 +196,7 @@
  viewport.addEventListener('wheel',e=>{
   if(films.length<2||(Math.abs(e.deltaX)<=Math.abs(e.deltaY)&&!e.shiftKey))return;
   e.preventDefault();
+  selection=null;
   target+=(e.deltaX||e.deltaY)/(ws+gap)*.5;
   wheelActive=true;
   clearTimeout(snap);
@@ -192,5 +215,5 @@
  },{rootMargin:'120px'}).observe(shelf);
  document.addEventListener('visibilitychange',()=>{if(document.hidden)stop();else start();});
  window.addEventListener('portfolio-video-open',()=>{paused=true;stop();});window.addEventListener('portfolio-video-close',()=>{paused=false;start();});
- reduce.addEventListener('change',()=>{s=target;draw(0);start();});fill();
+ reduce.addEventListener('change',()=>{selection=null;s=target;draw(0);start();});fill();
 })();
